@@ -10,14 +10,18 @@ module.exports.addEventListener = function(event, fn) {
     if (typeof(fn) !== 'function')
         return;
 
+    event = event.toLowerCase();
+
     if (event === "ready")
         readyFunc = fn;
-    else if (event == "appmessage")
+    else if (event === "appmessage")
         messageFunc = fn;
-    else if (event == "webviewclosed")
+    else if (event === "webviewclosed")
+        ;
+    else if (event === "showconfiguration")
         ;
     else
-        throw "Invalid Event";
+        throw "Invalid Event " + event;
 
     console.log("[INFO] Added event listener for: " + event);
 };
