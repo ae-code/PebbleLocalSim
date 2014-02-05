@@ -6,6 +6,8 @@ var Pebble = require('./simdata/server');
 var window = window || {};
 window.navigator = { };
 window.navigator.geolocation = Pebble.geolocation;
+var navigator = window.navigator || {};
+navigator.geolocation = Pebble.geolocation;
 
 var localStorage = new (require('./simdata/localStorage').Storage)("localStorage.dat");
 
